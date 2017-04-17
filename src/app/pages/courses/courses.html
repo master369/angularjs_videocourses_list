@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-6 col-xs-12">
+		<form name="searchForm" method="POST">
+			<div class="input-group edit_input_block">
+				<span class="input-group-addon" id="searchInput">Search:</span>
+				<input aria-describedby="searchInput" class="form-control" ng-model="serchModel" />
+			</div>
+		</form>
+	</div>
+	<div class="col-md-1 col-xs-12">
+		<button class="btn btn-default" ng-click="searchText.name = serchModel">Search</button>
+	</div>
+
+	<div class="col-md-2 col-xs-12 col-md-offset-3">
+		<button class="btn btn-success" ui-sref="shell.add()">Add new course</button>
+	</div>
+</div>
+<div>
+	<courseitem class="course_list" ng-repeat="course in vm.courses | filter: searchText" course="course" delete-course="vm.deleteCourse(course)">
+	</courseitem>
+</div>

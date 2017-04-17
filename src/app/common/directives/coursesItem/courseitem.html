@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-xs-12 col-md-10">
+		<header class="clearfix">
+			<span class="truncate header_course pull-left">{{::course.name}}</span>
+			<span class="pull-left header_info">{{::course.duration | timeFormatter}}</span>
+			<span class="pull-right header_info">{{::course.dateCreation}}</span>
+		</header>
+		<p class="truncate">{{::course.description}}</p>
+	</div>
+	<div class="btn-group-vertical cousre_controls col-xs-12 col-md-2" role="group" aria-label="...">
+		<button type="button" ui-sref="shell.edit({id: course.id})" class="btn btn-warning btn-lg">Edit</button>
+		<button class="btn btn-danger btn-lg" ng-click="deleteCourse({course: course})">Delete</button>
+	</div>
+</div>

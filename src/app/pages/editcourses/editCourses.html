@@ -1,0 +1,42 @@
+<div>
+	<form name="editForm" method="POST">
+		<div class="input-group edit_input_block">
+			<span class="input-group-addon" id="basic-addon1">Name:</span>
+			<input type="text" placeholder="Name" name="formNameInput" class="form-control" ng-model="vm.item.name" aria-describedby="basic-addon1"
+				required/>
+		</div>
+		<div class="input-group edit_input_block">
+			<span class="input-group-addon" id="basic-addon2">Description:</span>
+			<textarea name="formDesc" placeholder="Description" class="form-control editform_description" ng-model="vm.item.description"
+				aria-describedby="basic-addon2" required></textarea>
+		</div>
+		<div class="input-group edit_input_block">
+			<span class="input-group-addon" id="basic-addon3">Date of creation:</span>
+			<input type="text" placeholder="dd.MM.yyyy" name="formTime" class="form-control" ng-model="vm.item.dateCreation" aria-describedby="basic-addon3"
+				ng-pattern="vm.regex" required />
+		</div>
+		<div class="input-group edit_input_block">
+			<span class="input-group-addon" id="basic-addon4">Duration:</span>
+			<input id="inputDuration" placeholder="Duration" ng-maxlength="10" duration="timeFormatter" type="text" name="formDuration"
+				class="form-control" ng-model="vm.item.duration" aria-describedby="basic-addon4" required/>
+		</div>
+		<div class="row edit_input_block">
+			<div class="col-md-5">
+				<select ng-model='vm.selectedAuthors' class="form-control" multiple ng-options="author.name for author in vm.item.authors">
+				</select>
+			</div>
+			<div class="col-md-2 btn-group select_controls" role="group">
+				<button type="button" class="btn btn-default" ng-click='vm.moveItems(vm.selectedAllAuthors, vm.allAuthors, vm.item.authors)'><</button>
+				<button type="button" class="btn btn-default" ng-click='vm.moveItems(vm.selectedAuthors, vm.item.authors, vm.allAuthors)'>></button>
+			</div>
+			<div class="col-md-5">
+				<select ng-model='vm.selectedAllAuthors' class="form-control" multiple ng-options="author.name for author in vm.allAuthors">
+				</select>
+			</div>
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary" ng-click="vm.submit(vm.item)" ng-disabled="editForm.$invalid">Save</button>
+			<button type="button" class="btn btn-warning" ng-click="vm.reset()">Back to list</button>
+		</div>
+	</form>
+</div>

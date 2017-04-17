@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/app/common/services/LoginService/loginService.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./src/app/common/services/LoginService/loginService.js</span></h1>
+    <h2>
+        Statements: <span class="metric">52.94% <small>(9 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">52.94% <small>(9 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">./src/app/common/services/LoginService/</a> &#187; loginService.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
+    'use strict';
+&nbsp;
+    angular.module('app.common')
+        .service('loginService', loginService);
+&nbsp;
+&nbsp;
+    function loginService($injector, coursesService, $browser, $state) {
+        var userData = {
+            isAuthorized: false
+        };
+        this.checkAccess = <span class="fstat-no" title="function not covered" >function (event, toState, toParams, fromState, fromParams) {</span>
+<span class="cstat-no" title="statement not covered" >              var user = userData;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (toState.data.noLogin !== false &amp;&amp; toState.data.noLogin) {</span>
+            }
+            // вход с авторизацией
+            else <span class="cstat-no" title="statement not covered" >if (user.isAuthorized) {</span>
+                // event.preventDefault();
+            }
+&nbsp;
+            else {
+                // если пользователь не авторизован - отправляем на страницу авторизации
+<span class="cstat-no" title="statement not covered" >                event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('shell.login');</span>
+            }
+        };
+&nbsp;
+        return {
+            getUserData: getUserData,
+            changeAuthorized: changeAuthorized,
+            checkAccess: this.checkAccess,
+            setUserData: setUserData
+        };
+<span class="fstat-no" title="function not covered" >        function getUserData() {</span>
+<span class="cstat-no" title="statement not covered" >            return userData;</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function changeAuthorized(flag) {</span>
+<span class="cstat-no" title="statement not covered" >            userData.isAuthorized = flag;</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function setUserData(item) {</span>
+<span class="cstat-no" title="statement not covered" >            userData = item;</span>
+        }
+    }
+}());
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 18 2017 16:01:15 GMT+0400 (Astrakhan Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

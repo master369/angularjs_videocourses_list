@@ -1,0 +1,26 @@
+<form name="loginForm" method="POST" ng-submit="loginForm.$valid && vm.loginUser()" novalidate>
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<div class="alert alert-danger" role="alert" ng-show="submitted && (loginForm.formLoginInput != item.login || loginForm.formPassword != item.password )">Please check your login and password fields</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-group edit_input_block col-xs-12 col-md-6">
+			<span class="input-group-addon" id="loginInput">Login:</span>
+			<input required type="text" name="formLoginInput" class="form-control" ng-model="vm.user.login" aria-describedby="loginInput"
+				ng-pattern="vm.regexLogin" />
+		</div>
+		<p class="help-inline error" ng-show="submitted && loginForm.formLoginInput.$error.required">* Required</p>
+	</div>
+	<div class="row">
+		<div class="input-group edit_input_block col-xs-12 col-md-6">
+			<span class="input-group-addon" id="passwordInput">Password:</span>
+			<input required type="password" name="formPassword" class="form-control" ng-model="vm.user.password" aria-describedby="passwordInput"
+				ng-pattern="vm.regexPass" />
+		</div>
+		<p class="help-inline error" ng-show="submitted && loginForm.formPassword.$error.required">* Required</p>
+	</div>
+	<div class="row">
+		<button class="btn btn-primary" ng-click="submitted = true">Login</button>
+	</div>
+</form>

@@ -1,0 +1,21 @@
+﻿<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="shell.courses" >
+				<img class="brand_image" alt="Brand" src="../../images/angular.png">
+			</a>
+		</div>
+		<div class="nav navbar-nav navbar-right">
+
+		</div>
+		<div class="nav navbar-nav navbar-right">
+			<button ng-hide="vm.checkLogin()" ui-sref="shell.login()" type="button" class="btn btn-default navbar-btn navbar-left">Login</button>
+			<p ng-show="vm.checkLogin()" class="navbar-text navbar-left">Signed in as <a ui-sref="shell.courses" class="navbar-link">{{vm.user.login}}</a></p>
+			<button ng-show="vm.checkLogin()" ng-click="vm.logout()" type="button" class="btn btn-default navbar-btn navbar-left">Logout</button>
+		</div>
+	</div>
+</nav>
+<breadcrumbs ng-if="vm.breadcrumbs.length !== 0" breadcrumbs="vm.breadcrumbs"></breadcrumbs>
+<div class="container">
+	<div ui-view></div>
+</div>
